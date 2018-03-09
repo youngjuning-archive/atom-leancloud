@@ -1,0 +1,78 @@
+'.source.js':
+	'构建 AV.File 对象':
+    'prefix': 'avfile'
+    'body': 'var avfile = new AV.File(filename, file);'
+    'description': '文件->文件上传'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash794363109'
+
+	'从网络路径 AV.File 对象':
+    'prefix': 'avwebfile'
+    'body': 'var avfile = AV.File.withURL(filename,fileurl)'
+    'description': '文件->文件上传->从网络路径构建文件'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash688687091'
+
+	'图像缩略图':
+    'prefix': 'avthumbnail'
+    'body': '//获得宽度为100像素，高度200像素的缩略图\nvar url = file.thumbnailURL(100, 200);'
+    'description': '图像缩略图'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-259500047'
+
+	'文件元数据-获取文件大小':
+    'prefix': 'avfilesize'
+    'body': '// 获取文件大小\nvar size = file.size();'
+    'description': '文件元数据metaData'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-1143552046'
+
+	'文件元数据-获取上传者(AV.User)的objectId':
+    'prefix': 'avfileowener'
+    'body': '// 上传者(AV.User) 的 objectId，如果未登录，默认为空\nvar ownerId = file.ownerId();'
+    'description': '文件元数据metaData'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-1143552046'
+
+	'文件元数据-获取文件的全部元信息':
+    'prefix': 'avfilemetadata'
+    'body': '// 获取文件的全部元信息\nvar metadata = file.metaData();'
+    'description': '文件元数据metaData'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-1143552046'
+
+	'文件元数据-获取文件的格式':
+    'prefix': 'avfileformat'
+    'body': '// 获取文件的格式\nvar format = file.metaData(\'format\')'
+    'description': '文件元数据metaData'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-1143552046'
+
+	'文件删除（销毁）':
+    'prefix': 'avfiledestroy'
+    'body': """
+// 默认情况下，文件的删除权限是关闭的，需要进入 控制台 > 存储 > _File，选择菜单 其他 > 权限设置 > delete 来开启。
+// id 已知，通过如下接口从本地构建一个 AV.File
+var file = AV.File.createWithoutData(objectId);
+file.destroy().then(()=>{
+  // 删除成功
+},error=>{
+  alert(error)
+})
+"""
+    'description': '文件删除'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash690244'
+
+	'经典的文件查询方案':
+    'prefix': 'avfilequery'
+    'body': 'query.include(\'${1:filename}\');$2'
+    'description': '文件->常见的文件使用场景->文件被其他对象关联'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-940408283'
+
+	'已知id的文件查询方案':
+    'prefix': 'avfilequeryid'
+    'body': """
+var $1 = AV.Object.createWithoutData('${2:Class}', ${3:objectId});
+$1.fetch({
+  include:['${4:filename}']
+}).then(() =>{
+  // 成功
+},error=>{
+  alert(error)
+  });
+"""
+    'description': '对象->关联数据->Pointer'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-400605635'	
