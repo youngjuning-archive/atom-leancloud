@@ -1,0 +1,255 @@
+'.source.js':
+	'导入AV对象':
+		'prefix': 'av'
+		'body': 'import AV from \'leancloud-storage\';'
+		'description': '初始化LeanCloud'
+		'descriptionMoreURL': 'https://leancloud.cn/docs/sdk_setup-js.html#hash20935048'
+
+	'初始化LeanCloud':
+		'prefix': 'avinit'
+		'body': """
+	var APP_ID = '$1';
+	var APP_KEY = '$2';
+	import AV from 'leancloud-storage';
+
+	AV.init({
+	appId: APP_ID,
+	appKey: APP_KEY
+	});
+	"""
+		'description': '初始化LeanCloud'
+		'descriptionMoreURL': 'https://leancloud.cn/docs/sdk_setup-js.html#hash20935048'
+
+	'声明类型':
+    'prefix': 'avclass'
+    'body': 'var $1 = AV.Object.extend(\'$1\');'
+    'description': '对象->构建对象'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash813593086'
+
+	'新建对象':
+    'prefix': 'avnew'
+    'body': 'var $1 = new $2();'
+    'description': '对象->保存对象'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash632314851'
+
+	'保存（新增或更新）一个对象':
+    'prefix': 'avsave'
+    'body': """
+//LeanStorage 上的更新对象都是针对单个对象，云端会根据有没有 objectId 来决定是新增还是更新一个对象。
+$1.save().then(($2)=>{
+  // 保存成功
+  $3
+},error=>{
+  alert(error)
+})
+"""
+    'description': '对象->保存对象'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash632314851'
+
+	'保存选项':
+    'prefix': 'avfetchwhensave'
+    'body': """
+$1.save(null,{
+  fetchWhenSave: true
+  query: $2
+}).then(($3)=>{
+  // 保存成功
+  $4
+},error=>{
+  alert(error)
+})
+"""
+    'description': '对象->保存对象-保存选项'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash632731115'
+
+	'新建Query':
+    'prefix': 'avquery'
+    'body': 'var query = new AV.Query(\'$1\');'
+    'description': '获取对象'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash1025913543'
+
+	'获取对象':
+    'prefix': 'avqueryget'
+    'body': """
+query.get(${3:objectId}).then(($1)=>{
+  // 成功获得实例
+  $2
+},error=>{
+  alert(error)
+})
+"""
+    'description': '对象->获取对象'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash632731115'
+
+	'在本地构建一个 AV.Object':
+    'prefix': 'avlocalclass'
+    'body': '//假如 id 已知，则可以通过如下接口从本地构建一个 AV.Object\nvar $1 = AV.Object.createWithoutData(\'$2\',${3:objectId})'
+    'description': '对象->获取对象'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash632731115'
+
+	'获取objectId':
+    'prefix': 'avobjectid'
+    'body': 'var objectId = $1.id;'
+    'description': '对象->获取对象->获取objectId'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-1854765144'
+
+	'获取对象创建时间':
+    'prefix': 'avcreatedat'
+    'body': 'var createdAt = $1.createdAt;'
+    'description': '对象->获取对象->访问对象的属性'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-1546606634'
+
+	'获取对象创建时间':
+    'prefix': 'avupdatedat'
+    'body': 'var updatedAt = $1.updatedAt;'
+    'description': '对象->获取对象->访问对象的属性'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-1546606634'
+
+	'访问对象的属性':
+    'prefix': 'avget'
+    'body': 'var $1 = $2.get(\'$1\');'
+		'description': '对象->获取对象->访问对象的属性'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-1546606634'
+
+	'一次性获取返回对象的所有属性（比如进行数据绑定）':
+    'prefix': 'avtojson'
+    'body': '$1.toJSON();'
+    'description': '一次性获取返回对象的所有属性'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-1546606634'
+
+	'同步对象':
+	  'prefix': 'avfetch'
+	  'body': """
+var $1 = AV.Object.createWithoutData('${2:Class}',objectId);
+$1.fetch().then(()=>{
+	// 读取对象属性
+
+},error=>{
+		alert(error)
+})
+"""
+	  'description': '对象->获取对象->同步对象：从云端拉取数据到本地'
+	  'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash668169761'
+
+	'同步指定属性':
+    'prefix': 'avfetchproperty'
+    'body': """
+$1.fetch({
+  keys: '${2:key1,key2...}',
+}).then(()=>{
+  // 获取到本地
+
+},error=>{
+  alert(error)
+})
+"""
+    'description': '对象->获取对象->同步指定属性'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-2091393899'
+
+	'设置对象属性':
+    'prefix': 'avset'
+    'body': '$1.set(\'$2\',\'$3\');$4'
+    'description': '对象->更新对象'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash810954180'
+
+	'更新计数器':
+    'prefix': 'avincrement'
+    'body': '$1.increment(\'$2\', 1);'
+    'description': '对象->更新对象->更新计数器'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-618786915'
+
+	'将指定对象附加到数组末尾':
+    'prefix': 'avadd'
+    'body': '${1:array}.add(\'${2:arrayKey}\',${3:value});'
+    'description': '对象->更新对象->更新数组'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash811025808'
+
+	'如果数组中不包含指定对象，将该对象加入数组，对象的插入位置是随机的':
+    'prefix': 'avaddunique'
+    'body': '${1:array}.addUnique(\'${2:arrayKey}\',${3:value});'
+    'description': '对象->更新对象->更新数组'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash811025808'
+
+	'从数组字段中删除指定对象的所有实例':
+    'prefix': 'avremove'
+    'body': '${1:array}.remove(\'${2:arrayKey}\',${3:value});'
+    'description': '对象->更新对象->更新数组'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash811025808'
+
+	'删除（销毁）对象':
+    'prefix': 'avdestory'
+    'body': """
+$1.destroy().then(success=>{
+  // 删除成功
+  $2
+},error=>{
+  // 删除失败
+  $3
+})
+"""
+    'description': '对象->删除对象'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash664090316'
+
+	'批量创建（更新）':
+    'prefix': 'avsaveall'
+    'body': """
+var objects = [];// 构建一个本地的 AV.Object 对象数组
+AV.Object.saveAll(objects).then((objects)=>{
+  // 保存成功
+  $1
+},error=>{
+  alert(error)
+})
+"""
+    'description': '对象->批量操作'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash787692837'
+
+	'批量删除':
+    'prefix': 'avdestroyAll'
+    'body': """
+var objects = [];// 构建一个本地的 AV.Object 对象数组
+AV.Object.destroyAll(objects).then((objects)=>{
+  // 删除成功
+  $1
+},error=>{
+  alert(error)
+})
+"""
+    'description': '对象->批量操作'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash787692837'
+
+	'批量获取':
+    'prefix': 'avdestroyAll'
+    'body': """
+var objects = [];// 构建一个本地的 AV.Object 对象数组
+AV.Object.fetchAll(objects).then((objects)=>{
+  // 获取成功
+  $1
+},error=>{
+  alert(error)
+})
+"""
+    'description': '对象->批量操作'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash787692837'
+
+	'获取 Pointer 对象':
+    'prefix': 'avpointer'
+    'body': """
+// 假如 id 已知，则可以通过如下接口从本地构建一个 AV.Object
+var $1 = AV.Object.createWithoutData('${2:class}',${3：objectId});
+$1.fetch({
+  include: [pointer1,pointer2]
+}).then(()=>{
+  // 成功
+},error=>{
+  alert(error)
+})
+"""
+    'description': '对象->关联数据->pointer'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-400605635'
+
+	'创建一个 AV.GeoPoint 对象':
+    'prefix': 'avgeopoint'
+    'body': 'var point = new AV.GeoPoint(${1:纬度}, ${2:经度});'
+    'description': '对象->关联数据->地理位置'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash694140695'	
