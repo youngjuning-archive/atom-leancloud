@@ -1,14 +1,17 @@
 {
   "name": "atom-leancloud",
   "main": "./lib/atom-leancloud",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "全栈工程师必备Atom插件之LeanCloud代码补全插件",
-  "keywords": ["leancloud","atom","snippet"],
+  "keywords": [
+    "leancloud",
+    "atom",
+    "snippet"
+  ],
   "repository": "https://github.com/youngjuning/atom-leancloud",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
