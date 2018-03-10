@@ -9,3 +9,4 @@ BaaS：（后端即服务：Backend as a Service）公司为移动应用开发�
 - 对象(AV.Object)
 - 文件(AV.File)
 - 查询(AV.Query)
+- 用户(AV.User)
