@@ -1,0 +1,178 @@
+'.source.js':
+  '获取用户默认属性':
+    'prefix': 'avgetUsername'
+    'body': """
+AV.User.logIn(${1:username}, ${2:password}).then((loginedUser)=>{
+	var username = ${1:loginedUser}.getUsername();
+	var email = ${1:loginedUser}.getEmail();
+	// 请注意，密码不会明文存储在云端，因此密码只能重置，不能查看
+},error=>{
+	alert(JSON.stringify(error))
+})
+"""
+    'description': '用户->用户的属性->默认属性'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-377956167'
+
+	'手机号码注册':
+    'prefix': 'avmobile'
+    'body': """
+// 首先调用发送验证码的接口：
+AV.Cloud.requestSmsCode('13577778888').then((success)=>{
+}, error=> {
+});
+// 然后在 UI 上给与用户输入验证码的输入框，用户点击登录的时候调用如下接口：
+AV.User,signUpOrlogInWithMobilePhone('${1:mobole}','${2:SmSCode}').then((success)={
+  // 成功
+},error=>{
+  alert(JSON.stringify(error))
+})
+"""
+    'description': '用户->注册->手机号码注册'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-1853251363'
+
+  '用户名和密码注册':
+    'prefix': 'avsignup'
+    'body': """
+// 新建一个 AVUser 对象实例
+var user = new AV.User();
+// 设置用户名
+user.setUsername(${1:username});
+// 设置密码
+user.setPassword(${2:password});
+// 设置邮箱
+user.setEmail(${3:email});
+user.signUp().then((loginedUser)=>{
+  console.log(loginedUser);
+},error=>{
+  alert(error.message)
+})
+"""
+    'description': '用户->注册->用户名和密码注册'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-452155059'
+
+  '第三方账号登录':
+    'prefix': 'avwx'
+    'body': """
+AV.User.signUpOrlogInWithAuthData({
+  // 微博（weibo）用 uid
+  // 微信（weixin）和 QQ（qq）用 openid（或union）
+  "openid": "${1:openid}",
+  "access_token": "${access_token}",
+  "expires_at": "2016-01-06T11:43:11.904Z"
+},'weixin').then((success)=>{
+  alert('登录成功');
+},error=>{
+  alert(JSON.stringify(error));
+})
+"""
+    'description': '用户->注册->第三方账号登录'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-1169236345'
+
+  '重新发送邮箱':
+    'prefix': 'avrequestemailverify'
+    'body': """
+AV.User.requestEmailVerify(${1:email}).then((result)=>{
+  console.log(result)
+},error=>{
+  alert(JSON.stringify(error))
+})
+"""
+    'description': '用户->注册->验证邮箱'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash1214212664'
+
+  '用户名和密码登录':
+    'prefix': 'avlogin'
+    'body': """
+AV.User.logIn(${1:username},${2:password}).then((loginedUser)=>{
+  console.log(loginedUser)
+},error=>{
+  alert(error.message)
+})
+"""
+    'description': '用户->登录->用户名和密码登录'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-452075549'
+
+  '手机号和密码登录':
+    'prefix': 'avmobilepasslogin'
+    'body': """
+AV.logInWithMobilePhone('${1:mobile}','${2:password}').then((loginedUser)=>{
+  console.log(loginedUser);
+},error=>{
+  alert(error.messgae)
+})
+"""
+    'description': '用户->登录->手机号和密码登录'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash1523764857'
+
+  '手机号和验证码登录':
+    'prefix': 'avmobilecodelogin'
+    'body': """
+// 首先，调用发送登录验证码的接口：
+AV.User.requestLoginSmsCode('${1:mobile}').then((success)=>{}, error=> {
+  alert(error.messgae)
+});
+// 然后在界面上引导用户输入收到的 6 位短信验证码：
+AV.User.logInWithMobilePhoneSmsCode('13577778888', '238825').then((success)=>{
+}, error=> {
+  alert(error.message)
+});
+"""
+    'description': '用户->登录->手机号和验证码登录'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash2099357090'
+
+  '当前用户':
+    'prefix': 'avcurrentuser'
+    'body': 'AV.User.current()'
+    'description': '用户->登录->当前用户'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash748191977'
+
+  '验证 SessionToken 是否在有效期内':
+    'prefix': 'avisauthenticated'
+    'body': """
+var currentUser = AV.User.current();
+currentUser.isAuthenticated().then((authenticated)=>{
+  // console.log(authenticated); // 根据需要进行后续的操作
+})
+"""
+    'description': '用户->登录->SessionToken->验证 SessionToken 是否在有效期内'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-666999517'
+
+  '使用 SessionToken 登录':
+    'prefix': 'avsessionkeylogin'
+    'body': """
+AV.User.become(sessionToken).then((user)=>{
+  // currentUser已更新
+})
+"""
+    'description': '用户->登录->SessionToken->使用SessionToken登录'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-666999517'
+
+  '邮箱重置密码':
+    'prefix': 'avrequestpasswordreset'
+    'body': """
+// 重置密码的过程很简单，用户只需要输入注册的电子邮件地址即可：
+AV.User.requestPasswordReset(${1:email}).then((success)=>{},error=>{
+})
+"""
+    'description': '用户->重置密码->邮箱重置密码'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-167848129'
+
+  '手机号码重置密码':
+    'prefix': 'avrequestpasswordresetbysmscode'
+    'body': """
+// 「手机号码重置密码」使用下面的方法来获取短信验证码：
+AV.User.requestPasswordResetBySmsCode(${1:mobile}).then((success)=>{},error=>{})
+// 注意！用户需要先绑定手机号码，然后使用短信验证码来重置密码：
+AV.User.resetPasswordBySmsCode(${2:smscode},${3:thenewpassword}).then((success)=>{},error=>{})
+"""
+    'description': '用户->重置密码->手机号码重置密码'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash1730290933'
+
+  '登出':
+    'prefix': 'avlogout'
+    'body': """
+// 用户登出系统时，SDK会自动清理缓存信息
+AV.User.logOut();
+"""
+    'description': '用户->重置密码->登出'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash961247'
