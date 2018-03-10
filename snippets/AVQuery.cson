@@ -30,49 +30,49 @@ query.find().then((${1:res})=>{
 
 	'比较查询-等于':
     'prefix': 'avequalto'
-    'body': '//第一个参数是属性名，第二个参数是条件\nquery.equalTo(\'${1:key}\',${2:value})'
+    'body': '//第一个参数是属性名，第二个参数是条件\nquery.equalTo(\'${1:key}\',${2:value});'
     'description': '查询->比较查询'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash858517260'
 
   '比较查询-不等于':
     'prefix': 'avnotequalto'
-    'body': '//第一个参数是属性名，第二个参数是条件\nquery.notEqualTo(\'${1:key}\',${2:value})'
+    'body': '//第一个参数是属性名，第二个参数是条件\nquery.notEqualTo(\'${1:key}\',${2:value});'
     'description': '查询->比较查询'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash858517260'
 
   '比较查询-大于':
     'prefix': 'avgreaterthan'
-    'body': '//第一个参数是属性名，第二个参数是条件\nquery.greaterThan(\'${1:key}\',${2:value})'
+    'body': '//第一个参数是属性名，第二个参数是条件\nquery.greaterThan(\'${1:key}\',${2:value});'
     'description': '查询->比较查询'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash858517260'
 
   '比较查询-大于等于':
     'prefix': 'avgreaterthanorequalto'
-    'body': '//第一个参数是属性名，第二个参数是条件\nquery.greaterThanOrEqualTo(\'${1:key}\',${2:value})'
+    'body': '//第一个参数是属性名，第二个参数是条件\nquery.greaterThanOrEqualTo(\'${1:key}\',${2:value});'
     'description': '查询->比较查询'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash858517260'
 
   '比较查询-小于':
     'prefix': 'avlessthan'
-    'body': '//第一个参数是属性名，第二个参数是条件\nquery.lessThan(\'${1:key}\',${2:value})'
+    'body': '//第一个参数是属性名，第二个参数是条件\nquery.lessThan(\'${1:key}\',${2:value});'
     'description': '查询->比较查询'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash858517260'
 
   '比较查询-小于等于':
     'prefix': 'avlessthanorequalto'
-    'body': '//第一个参数是属性名，第二个参数是条件\nquery.lessThanOrEqualTo(\'${1:key}\',${2:value})'
+    'body': '//第一个参数是属性名，第二个参数是条件\nquery.lessThanOrEqualTo(\'${1:key}\',${2:value});'
     'description': '查询->比较查询'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash858517260'
 
 	'字符串查询-前缀查询':
     'prefix': 'avstartwith'
-    'body': 'query.startWith(\'${1:key}\',${2:value})'
+    'body': 'query.startWith(\'${1:key}\',${2:value});'
     'description': '查询->字符串查询'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-1971670686'
 
 	'字符串查询-包含查询':
     'prefix': 'avcontains'
-    'body': 'query.contains(\'${1:key}\',${2:value})'
+    'body': 'query.contains(\'${1:key}\',${2:value});'
     'description': '查询->字符串查询'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-1971670686'
 
