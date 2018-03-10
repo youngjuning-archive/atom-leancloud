@@ -240,7 +240,7 @@ AV.Object.fetchAll(objects).then((objects)=>{
 	'获取 Pointer 对象':
     'prefix': 'avpointer'
     'body': """
-// 假如 id 已知，则可以通过如下接口从本地构建一个 AV.Object
+// id 已知，则可以通过如下接口从本地构建一个 AV.Object
 var $1 = AV.Object.createWithoutData('${2:class}',${3：objectId});
 $1.fetch({
   include: [pointer1,pointer2]
