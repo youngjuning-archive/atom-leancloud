@@ -99,7 +99,7 @@ query.get(${3:objectId}).then(($1)=>{
     'description': '对象->获取对象->访问对象的属性'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-1546606634'
 
-	'获取对象创建时间':
+	'获取对象最近一次更新时间':
     'prefix': 'avupdatedat'
     'body': 'var updatedAt = $1.updatedAt;'
     'description': '对象->获取对象->访问对象的属性'
@@ -107,9 +107,9 @@ query.get(${3:objectId}).then(($1)=>{
 
 	'访问对象的属性':
     'prefix': 'avget'
-    'body': 'var $1 = $2.get(\'$1\');'
+		'body': 'var $1 = $2.get(\'$1\');'
 		'description': '对象->获取对象->访问对象的属性'
-    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-1546606634'
+		'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-1546606634'
 
 	'一次性获取返回对象的所有属性（比如进行数据绑定）':
     'prefix': 'avtojson'
@@ -252,4 +252,4 @@ $1.fetch({
     'prefix': 'avgeopoint'
     'body': 'var point = new AV.GeoPoint(${1:纬度}, ${2:经度});'
     'description': '对象->关联数据->地理位置'
-    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash694140695'	
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash694140695'
