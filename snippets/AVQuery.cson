@@ -12,7 +12,7 @@ query.get(${1:objectId}).then(()=>{
   // 成功获得实例
 
 }, (error)=>{
-  alert(error)
+  alert(JSON.stringify(error))
 });
 """
     'description': '查询->创建查询实例'
@@ -24,7 +24,7 @@ query.get(${1:objectId}).then(()=>{
 query.find().then((res)=>{
   console.log(res);
 },error=>{
-  alert(error);
+  alert(JSON.stringify(error));
 })
 """
 
@@ -104,7 +104,7 @@ query.exists(${1:key});
 query.find().then((results)=>{
   // results 返回的就是指定的key不为空值的集合
 },error=>{
-  alert(error)
+  alert(JSON.stringify(error))
 })
 """
     'description': '查询->空值查询'
@@ -164,7 +164,7 @@ query.withinKilometers('${1:GeoPointKey}',${2:GeoPoint},2.0);
 query.first().then((data)=>{
   // data就是符合条件的第一个AV.Object
 },error=>{
-  alert(error)
+  alert(JSON.stringify(error))
 })
 """
     'description': '查询->查询结果数量和排序->获取第一条结果'
@@ -207,7 +207,7 @@ query.skip(${2:20});// 跳过 n 条结果
 query.count().then((count)=>{
   console.log(count);
 },error=>{
-  alert(error)
+  alert(JSON.stringify(error))
 })
 """
     'description': '查询->查询结果数量和排序->统计总数量'

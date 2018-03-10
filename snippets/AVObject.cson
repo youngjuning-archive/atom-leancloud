@@ -27,8 +27,8 @@
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash813593086'
 
 	'新建对象':
-    'prefix': 'avnew'
-    'body': 'var $1 = new $2();'
+    'prefix': 'avobject'
+    'body': 'var $1 = new (\'$2\');'
     'description': '对象->保存对象'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash632314851'
 
@@ -40,7 +40,7 @@ $1.save().then(($2)=>{
   // 保存成功
   $3
 },error=>{
-  alert(error)
+  alert(JSON.stringify(error))
 })
 """
     'description': '对象->保存对象'
@@ -56,7 +56,7 @@ $1.save(null,{
   // 保存成功
   $4
 },error=>{
-  alert(error)
+  alert(JSON.stringify(error))
 })
 """
     'description': '对象->保存对象-保存选项'
@@ -75,14 +75,14 @@ query.get(${3:objectId}).then(($1)=>{
   // 成功获得实例
   $2
 },error=>{
-  alert(error)
+  alert(JSON.stringify(error))
 })
 """
     'description': '对象->获取对象'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash632731115'
 
 	'在本地构建一个 AV.Object':
-    'prefix': 'avlocalclass'
+    'prefix': 'avcreatewithoutdata'
     'body': '//假如 id 已知，则可以通过如下接口从本地构建一个 AV.Object\nvar $1 = AV.Object.createWithoutData(\'$2\',${3:objectId})'
     'description': '对象->获取对象'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash632731115'
@@ -125,7 +125,7 @@ $1.fetch().then(()=>{
 	// 读取对象属性
 
 },error=>{
-		alert(error)
+		alert(JSON.stringify(error))
 })
 """
 	  'description': '对象->获取对象->同步对象：从云端拉取数据到本地'
@@ -140,7 +140,7 @@ $1.fetch({
   // 获取到本地
 
 },error=>{
-  alert(error)
+  alert(JSON.stringify(error))
 })
 """
     'description': '对象->获取对象->同步指定属性'
@@ -198,7 +198,7 @@ AV.Object.saveAll(objects).then((objects)=>{
   // 保存成功
   $1
 },error=>{
-  alert(error)
+  alert(JSON.stringify(error))
 })
 """
     'description': '对象->批量操作'
@@ -212,7 +212,7 @@ AV.Object.destroyAll(objects).then((objects)=>{
   // 删除成功
   $1
 },error=>{
-  alert(error)
+  alert(JSON.stringify(error))
 })
 """
     'description': '对象->批量操作'
@@ -226,7 +226,7 @@ AV.Object.fetchAll(objects).then((objects)=>{
   // 获取成功
   $1
 },error=>{
-  alert(error)
+  alert(JSON.stringify(error))
 })
 """
     'description': '对象->批量操作'
@@ -242,7 +242,7 @@ $1.fetch({
 }).then(()=>{
   // 成功
 },error=>{
-  alert(error)
+  alert(JSON.stringify(error))
 })
 """
     'description': '对象->关联数据->pointer'

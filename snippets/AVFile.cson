@@ -50,7 +50,7 @@ var file = AV.File.createWithoutData(objectId);
 file.destroy().then(()=>{
   // 删除成功
 },error=>{
-  alert(error)
+  alert(JSON.stringify(error))
 })
 """
     'description': '文件删除'
@@ -71,8 +71,8 @@ $1.fetch({
 }).then(() =>{
   // 成功
 },error=>{
-  alert(error)
+  alert(JSON.stringify(error))
   });
 """
     'description': '对象->关联数据->Pointer'
-    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-400605635'	
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-400605635'
