@@ -161,8 +161,9 @@ query.withinKilometers('${1:GeoPointKey}',${2:GeoPoint},2.0);
 	'获取第一条结果':
     'prefix': 'avfirst'
     'body': """
-query.first().then((data)=>{
-  // data就是符合条件的第一个AV.Object
+query.first().then((${1:data})=>{
+  // ${1:data}就是符合条件的第一个AV.Object
+	$2
 },error=>{
   alert(JSON.stringify(error))
 })
