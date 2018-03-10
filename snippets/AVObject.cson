@@ -74,7 +74,7 @@ $1.save(null,{
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash1025913543'
 
 	'获取对象':
-    'prefix': 'avget'
+    'prefix': 'avqueryget'
     'body': """
 query.get(${3:objectId}).then(($1)=>{
   // 成功获得实例
@@ -111,8 +111,8 @@ query.get(${3:objectId}).then(($1)=>{
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-1546606634'
 
 	'访问对象的属性':
-    'prefix': 'avget'
-		'body': 'var $1 = $2.get(\'$1\');'
+		'prefix': 'avget'
+		'body': 'var $1 = $2.get(\'$3\');'
 		'description': '对象->获取对象->访问对象的属性'
 		'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-1546606634'
 
