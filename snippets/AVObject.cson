@@ -74,7 +74,7 @@ $1.save(null,{
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash1025913543'
 
 	'获取对象':
-    'prefix': 'avqueryget'
+    'prefix': 'avget'
     'body': """
 query.get(${3:objectId}).then(($1)=>{
   // 成功获得实例
@@ -88,7 +88,7 @@ query.get(${3:objectId}).then(($1)=>{
 
 	'在本地构建一个 AV.Object':
     'prefix': 'avcreatewithoutdata'
-    'body': '//假如 id 已知，则可以通过如下接口从本地构建一个 AV.Object\nvar $1 = AV.Object.createWithoutData(\'$2\',${3:objectId});'
+    'body': '//假如 id 已知，则可以通过如下接口从本地构建一个 AV.Object\nvar $1 = AV.Object.createWithoutData(\'$2\',${3:id});'
     'description': '对象->获取对象'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash632731115'
 
@@ -125,8 +125,24 @@ query.get(${3:objectId}).then(($1)=>{
 	'同步对象':
 	  'prefix': 'avfetch'
 	  'body': """
-var $1 = AV.Object.createWithoutData('${2:Class}',objectId);
+var $1 = AV.Object.createWithoutData('${2:Class}',id);
 $1.fetch().then(()=>{
+	// 读取对象属性
+
+},error=>{
+		alert(JSON.stringify(error))
+})
+"""
+	  'description': '对象->获取对象->同步对象：从云端拉取数据到本地'
+	  'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash668169761'
+
+	'同步指定Pointer属性':
+	  'prefix': 'avfetchpointer'
+	  'body': """
+var $1 = AV.Object.createWithoutData('${2:Class}',id);
+$1.fetch({
+	include: [$3]
+}).then(()=>{
 	// 读取对象属性
 
 },error=>{
@@ -241,7 +257,7 @@ AV.Object.fetchAll(objects).then((objects)=>{
     'prefix': 'avpointer'
     'body': """
 // id 已知，则可以通过如下接口从本地构建一个 AV.Object
-var $1 = AV.Object.createWithoutData('${2:class}',${3：objectId});
+var $1 = AV.Object.createWithoutData('${2:class}',${3：id});
 $1.fetch({
   include: [pointer1,pointer2]
 }).then(()=>{
