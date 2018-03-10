@@ -1,6 +1,6 @@
 {
   "name": "atom-leancloud",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "全栈工程师必备Atom插件之LeanCloud代码补全插件",
   "keywords": [
     "leancloud",
