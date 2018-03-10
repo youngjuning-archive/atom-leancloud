@@ -26,9 +26,15 @@
     'description': '对象->构建对象'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash813593086'
 
-	'新建对象':
+	'声明类型的同时新建对象':
     'prefix': 'avobject'
-    'body': 'var $1 = new (\'$2\');'
+    'body': 'var ${1:object} = new AV.Objcet(\'${2:ClassName}\');'
+    'description': '对象->保存对象'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash632314851'
+
+	'新建对象':
+    'prefix': 'avnew'
+    'body': 'var ${1:object} = new ${2:ClassName}();'
     'description': '对象->保存对象'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash632314851'
 
