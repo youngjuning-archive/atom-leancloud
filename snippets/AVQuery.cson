@@ -21,8 +21,8 @@ query.get(${1:objectId}).then(()=>{
 	'执行查询语句':
     'prefix': 'avfind'
     'body': """
-query.find().then((res)=>{
-  console.log(res);
+query.find().then((${1:res})=>{
+  console.log(${1:res});
 },error=>{
   alert(JSON.stringify(error));
 })
