@@ -20,13 +20,13 @@
 	'保存（新增或更新）一个对象':
     'prefix': 'avsave'
     'body': """
-$1.save().then(($2)=>{
-	// 保存成功
-	$3
-},error=>{
-  alert(JSON.stringify(error))
-})
-"""
+			$1.save().then(($2)=>{
+				// 保存成功
+				$3
+			}).catch((error)=>{
+				console.log(error)
+			})
+		"""
     'description': '对象->保存对象'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash632314851'
 
