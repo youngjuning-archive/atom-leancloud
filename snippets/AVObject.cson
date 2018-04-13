@@ -1,25 +1,4 @@
 '.source.js':
-	'导入AV对象':
-		'prefix': 'av'
-		'body': 'import AV from \'leancloud-storage\';'
-		'description': '初始化LeanCloud'
-		'descriptionMoreURL': 'https://leancloud.cn/docs/sdk_setup-js.html#hash20935048'
-
-	'初始化LeanCloud':
-		'prefix': 'avinit'
-		'body': """
-	var APP_ID = '$1';
-	var APP_KEY = '$2';
-	import AV from 'leancloud-storage';
-
-	AV.init({
-	appId: APP_ID,
-	appKey: APP_KEY
-	});
-	"""
-		'description': '初始化LeanCloud'
-		'descriptionMoreURL': 'https://leancloud.cn/docs/sdk_setup-js.html#hash20935048'
-
 	'声明类型':
     'prefix': 'avclass'
     'body': 'var $1 = AV.Object.extend(\'$1\');'
