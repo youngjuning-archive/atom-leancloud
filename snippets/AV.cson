@@ -1,41 +1,41 @@
 '.source.js,javascript':
   '初始化LeanCloud(微信小程序)':
-		'prefix': 'avwxinit'
-		'body': """
+    'prefix': 'avwxinit'
+    'body': """
       import AV from './utils/av-weapp-min.js'
-    	let APP_ID = '$1'
-    	let APP_KEY = '$2'
-    	AV.init({
-      	appId: APP_ID,
-      	appKey: APP_KEY
-    	})
-  	"""
-		'description': '初始化LeanCloud'
-		'descriptionMoreURL': 'https://leancloud.cn/docs/sdk_setup-js.html#hash20935048'
-	'初始化LeanCloud':
-		'prefix': 'avinit'
-		'body': """
+      let APP_ID = '$1'
+      let APP_KEY = '$2'
+      AV.init({
+        appId: APP_ID,
+        appKey: APP_KEY
+      })
+    """
+    'description': '初始化LeanCloud'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/sdk_setup-js.html#hash20935048'
+  '初始化LeanCloud':
+    'prefix': 'avinit'
+    'body': """
       import AV from 'leancloud-storage'
-    	let APP_ID = '$1'
-    	let APP_KEY = '$2'
-    	AV.init({
-      	appId: APP_ID,
-      	appKey: APP_KEY
-    	})
-  	"""
-		'description': '初始化LeanCloud'
-		'descriptionMoreURL': 'https://leancloud.cn/docs/sdk_setup-js.html#hash20935048'
+      let APP_ID = '$1'
+      let APP_KEY = '$2'
+      AV.init({
+        appId: APP_ID,
+        appKey: APP_KEY
+      })
+    """
+    'description': '初始化LeanCloud'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/sdk_setup-js.html#hash20935048'
   '导入AV对象(微信小程序)':
-		'prefix': 'avwx'
-		'body': """
+    'prefix': 'avwx'
+    'body': """
       import AV from './utils/av-weapp-min.js'
     """
-		'description': '初始化LeanCloud'
-		'descriptionMoreURL': 'https://leancloud.cn/docs/sdk_setup-js.html#hash20935048'
+    'description': '初始化LeanCloud'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/sdk_setup-js.html#hash20935048'
   '导入AV对象':
-		'prefix': 'avwx'
-		'body': """
+    'prefix': 'avwx'
+    'body': """
       import AV from 'leancloud-storage'
     """
-		'description': '初始化LeanCloud'
-		'descriptionMoreURL': 'https://leancloud.cn/docs/sdk_setup-js.html#hash20935048'
+    'description': '初始化LeanCloud'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/sdk_setup-js.html#hash20935048'
