@@ -6,7 +6,6 @@
 		"""
     'description': '文件->文件上传'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash794363109'
-
 	'从网络路径 AV.File 对象':
     'prefix': 'avwebfile'
     'body': """
@@ -14,7 +13,6 @@
 		"""
     'description': '文件->文件上传->从网络路径构建文件'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash688687091'
-
 	'图像缩略图':
     'prefix': 'avthumbnail'
     'body': """
@@ -23,7 +21,6 @@
 		"""
     'description': '图像缩略图'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-259500047'
-
 	'文件元数据-获取文件大小':
     'prefix': 'avfilesize'
     'body': """
@@ -32,7 +29,6 @@
 		"""
     'description': '文件元数据metaData'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-1143552046'
-
 	'文件元数据-获取上传者(AV.User)的objectId':
     'prefix': 'avfileowener'
     'body': """
@@ -41,7 +37,6 @@
 		"""
     'description': '文件元数据metaData'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-1143552046'
-
 	'文件元数据-获取文件的全部元信息':
     'prefix': 'avfilemetadata'
     'body': """
@@ -50,7 +45,6 @@
 		"""
     'description': '文件元数据metaData'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-1143552046'
-
 	'文件元数据-获取文件的格式':
     'prefix': 'avfileformat'
     'body': """
@@ -59,7 +53,6 @@
 		"""
     'description': '文件元数据metaData'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-1143552046'
-
 	'文件删除（销毁）':
     'prefix': 'avfiledestroy'
     'body': """
@@ -74,7 +67,6 @@
 		"""
     'description': '文件删除'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash690244'
-
 	'查询关联对象':
     'prefix': 'avfilequery'
     'body': """
@@ -82,7 +74,6 @@
 		"""
     'description': '文件->常见的文件使用场景->文件被其他对象关联'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-940408283'
-
 	'已知id的文件查询方案':
     'prefix': 'avfilequeryid'
     'body': """
@@ -97,3 +88,19 @@
 		"""
     'description': '对象->关联数据->Pointer'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-400605635'
+	'LeanCloud 文件上传':
+    'prefix': 'avupload'
+    'body': """
+      let tempFilePath = res.tempFilePaths[0];
+      new AV.File('${1:file-name}', {
+        blob: {
+          uri: tempFilePath
+        },
+      }).save().then((file) => {
+        console.log(file.url())
+      }).catch((error) => {
+        console.log(error)
+      })
+    """
+    'description': '小程序->存储文件存储'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/weapp.html#hash794469087'

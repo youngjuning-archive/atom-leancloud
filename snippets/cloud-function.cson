@@ -1,0 +1,8 @@
+'.source.js,javascript':
+  '开启超级权限（Master Key）':
+    'prefix': 'avuserMasterKey'
+    'body': """
+      AV.Cloud.useMasterKey()
+    """
+    'description': 'Master Key 和超级权限'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanengine_cloudfunction_guide-node.html#hash348891298'
