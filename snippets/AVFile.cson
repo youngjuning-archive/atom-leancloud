@@ -1,4 +1,4 @@
-'.source.js':
+'.source.js,javascript':
 	'构建 AV.File 对象':
     'prefix': 'avfile'
     'body': """
