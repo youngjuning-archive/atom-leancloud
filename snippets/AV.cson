@@ -53,16 +53,24 @@
     'description': '一键登录'
     'descriptionMoreURL': 'https://leancloud.cn/docs/weapp.html#hash632531944'
   # 云函数
+  '切换云引擎环境到预备环境':
+    'prefix': 'avsetProduction'
+    'body': """
+      AV.setProduction(false) // 调用预备环境
+    """
+    'description': '切换云引擎环境'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanengine_cloudfunction_guide-node.html#hash1210911107'
   'LeanCloud SDK 调用云函数':
     'prefix': 'avrun'
     'body': """
-      let paramsJson = {
+      AV.Cloud.run('${1:cloudFuncName}',{
         $2
-      }
-      AV.Cloud.run('${1:cloudFuncName}',paramsJson).then(data =>{
+      }).then(data =>{
         // 调用成功，取得成功的应答 data
+        $3
       },err =>{
         // 处理调用失败
+        $4
       })
     """
     'description': 'SDK 调用云函数'
