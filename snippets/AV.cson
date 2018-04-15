@@ -65,8 +65,8 @@
     'body': """
       AV.Cloud.run('${1:cloudFuncName}',{
         $2
-      }).then(data =>{
-        // 调用成功，取得成功的应答 data
+      }).then(res =>{
+        // 调用成功
         $3
       },err =>{
         // 处理调用失败
