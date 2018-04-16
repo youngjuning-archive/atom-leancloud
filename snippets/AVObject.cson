@@ -1,4 +1,4 @@
-'.source.js':
+'.source.js,javascript':
 	'声明类型':
     'prefix': 'avclass'
     'body': 'var $1 = AV.Object.extend(\'$1\');'

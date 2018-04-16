@@ -1,4 +1,4 @@
-'.source.js':
+'.source.js,javascript':
 	'创建查询实例':
     'prefix': 'avquery'
     'body': 'var query = new AV.Query(\'${1:Class}\');'

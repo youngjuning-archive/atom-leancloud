@@ -1,5 +1,5 @@
 # LeanCloud 用户系统
-'.source.js':
+'.source.js,javascript':
   '获取用户默认属性':
     'prefix': 'avgetUsername'
     'body': """
