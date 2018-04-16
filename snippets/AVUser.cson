@@ -13,7 +13,7 @@
     """
     'description': '用户->用户的属性->默认属性'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-377956167'
-	'手机号码注册':
+  '手机号码注册':
     'prefix': 'avmobile'
     'body': """
       // 首先调用发送验证码的接口：
@@ -114,7 +114,7 @@
     'description': '用户->登录->手机号和验证码登录'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash2099357090'
   '当前用户':
-    'prefix': 'avcurrentuser'
+    'prefix': 'avcurrent'
     'body': 'AV.User.current()'
     'description': '用户->登录->当前用户'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash748191977'
