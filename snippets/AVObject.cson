@@ -23,9 +23,14 @@
 			    super()
 			    AV.Object.register(${1:Dictionary})
 			  }
+
+				static createWithoutData (id) {
+			    return super.createWithoutData('${1:Dictionary}', id)
+			  }
 				static getQuery () {
 			    return new AV.Query('${1:Dictionary}')
 			  }
+
 				$2
 			}
 
