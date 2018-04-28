@@ -23,7 +23,9 @@
 			    super()
 			    AV.Object.register(${1:Dictionary})
 			  }
-
+				static getQuery () {
+			    return new AV.Query('${1:Dictionary}')
+			  }
 				$2
 			}
 
