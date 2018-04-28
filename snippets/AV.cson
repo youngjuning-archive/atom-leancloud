@@ -1,4 +1,9 @@
 '.source.js,javascript':
+  'import av':
+    'prefix': 'av'
+    'body': """
+      import AV from '../../utils/av-weapp-min.js'
+    """
   '初始化LeanCloud':
     'prefix': 'avinit'
     'body': """
