@@ -6,18 +6,29 @@
 		"""
     'description': '对象->构建对象'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash813593086'
-	'声明类型的同时新建对象':
+	'构建对象':
     'prefix': 'avobject'
     'body': """
 			let ${1:object} = new AV.Object('${2:ClassName}')
 		"""
-    'description': '对象->保存对象'
+    'description': '对象->构建对象'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash632314851'
-	'新建对象':
-    'prefix': 'avnew'
-    'body': 'let ${1:object} = new ${2:ClassName}();'
-    'description': '对象->保存对象'
-    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash632314851'
+	'ES6 声明类型':
+	  'prefix': 'av6class'
+	  'body': """
+			import AV from '../utils/av-weapp-min.js'
+			class ${1:Dictionary} extends AV.Object {
+			  constructor () {
+			    // 调用 父类构造函数，并注册
+			    super()
+			    AV.Object.register(${1:Dictionary})
+			  }
+
+				$2
+			}
+
+			export default ${1:Dictionary}
+	  """
 	'保存（新增或更新）一个对象':
     'prefix': 'avsave'
     'body': """
