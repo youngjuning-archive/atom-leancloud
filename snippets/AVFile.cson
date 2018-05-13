@@ -104,3 +104,23 @@
     """
     'description': '小程序->存储文件存储'
     'descriptionMoreURL': 'https://leancloud.cn/docs/weapp.html#hash794469087'
+	'小程序LeanCloud上传图片':
+	  'prefix': 'avweupload'
+	  'body': """
+			wx.pro.chooseImage({
+			  count: 1,
+			  sizeType: ['original', 'compressed'],
+			  sourceType: ['album', 'camera'],
+			}).then(res => {
+			  var tempFilePath = res.tempFilePaths[0]
+			  new AV.File('1.txt', {
+			    blob: {
+			      uri: tempFilePath,
+			    }
+			  }).save().then(
+			    file => console.log(file.url())
+			  )
+			}).catch(console.error)
+	  """
+	  'description': '小程序文件存储'
+	  'descriptionMoreURL': 'https://leancloud.cn/docs/weapp.html#hash794469087'
