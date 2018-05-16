@@ -4,6 +4,11 @@
     'body': """
       import AV from '../../utils/av-weapp-min.js'
     """
+  'npm import av':
+    'prefix': 'npmav'
+    'body': """
+      import AV from 'leancloud-storage'
+    """
   '初始化LeanCloud':
     'prefix': 'avinit'
     'body': """
