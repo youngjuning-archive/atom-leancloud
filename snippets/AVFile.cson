@@ -2,14 +2,14 @@
 	'构建 AV.File 对象':
     'prefix': 'avfile'
     'body': """
-			let avfile = new AV.File(filename, file)
+			let file = new AV.File(filename, file)
 		"""
     'description': '文件->文件上传'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash794363109'
 	'从网络路径 AV.File 对象':
     'prefix': 'avwebfile'
     'body': """
-			let avfile = AV.File.withURL(filename,fileurl)
+			let file = AV.File.withURL(filename,fileurl)
 		"""
     'description': '文件->文件上传->从网络路径构建文件'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash688687091'
