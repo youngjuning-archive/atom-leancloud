@@ -2,7 +2,7 @@
 	'构建 AV.File 对象':
     'prefix': 'avfile'
     'body': """
-			let file = new AV.File(filename, file)
+			let file = new AV.File(filename, data)
 		"""
     'description': '文件->文件上传'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash794363109'
