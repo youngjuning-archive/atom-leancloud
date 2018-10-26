@@ -90,6 +90,11 @@
     'body': 'query.contains(\'${1:key}\',${2:value})'
     'description': '查询->字符串查询'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-1971670686'
+	'字符串查询-包含查询-数组':
+    'prefix': 'av-query-containedIn'
+    'body': 'query.containedIn(\'${1:key}\',${2:[value]})'
+    'description': '查询->字符串查询->值为数组'
+    'descriptionMoreURL': 'hhttp://t.cn/EZS5SAX'	
 	'字符串查询-不包含查询':
     'prefix': 'av-query-notcontains'
     'body': """
