@@ -2,15 +2,22 @@
   'import av':
     'prefix': 'av'
     'body': """
-      import AV from '../../utils/av-weapp-min.js'
+      import AV from 'leancloud-storage'
     """
-  'npm import av':
-    'prefix': 'npmav'
+  'import av live-query':
+    'prefix': 'av-live-query'
     'body': """
       import AV from 'leancloud-storage/live-query'
     """
+  '导入AV对象(微信小程序)':
+    'prefix': 'av-wx'
+    'body': """
+      import AV from './utils/av-weapp-min.js'
+    """
+    'description': '初始化LeanCloud'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/sdk_setup-js.html#hash20935048'  
   '初始化LeanCloud':
-    'prefix': 'avinit'
+    'prefix': 'av-init'
     'body': """
       import AV from 'leancloud-storage'
       let APP_ID = '$1'
@@ -22,23 +29,9 @@
     """
     'description': '初始化LeanCloud'
     'descriptionMoreURL': 'https://leancloud.cn/docs/sdk_setup-js.html#hash20935048'
-  '导入AV对象(微信小程序)':
-    'prefix': 'avwx'
-    'body': """
-      import AV from './utils/av-weapp-min.js'
-    """
-    'description': '初始化LeanCloud'
-    'descriptionMoreURL': 'https://leancloud.cn/docs/sdk_setup-js.html#hash20935048'
-  '导入AV对象':
-    'prefix': 'avwx'
-    'body': """
-      import AV from 'leancloud-storage'
-    """
-    'description': '初始化LeanCloud'
-    'descriptionMoreURL': 'https://leancloud.cn/docs/sdk_setup-js.html#hash20935048'
   # 小程序
   '初始化LeanCloud(微信小程序)':
-    'prefix': 'avwxinit'
+    'prefix': 'av-wx-init'
     'body': """
       import AV from './utils/av-weapp-min.js'
       let APP_ID = '$1'
@@ -51,7 +44,7 @@
     'description': '初始化LeanCloud'
     'descriptionMoreURL': 'https://leancloud.cn/docs/sdk_setup-js.html#hash20935048'
   '一键登录微信小程序':
-    'prefix': 'avloginWithWeapp'
+    'prefix': 'av-loginWithWeapp'
     'body': """
       AV.User.loginWithWeapp().then((user) => {
         wx.setLocalStorageSync('userInfo',user.toJSON())
@@ -76,11 +69,9 @@
       AV.Cloud.run('${1:cloudFuncName}',{
         $2
       }).then(res =>{
-        // 调用成功
-        $3
-      },err =>{
-        // 处理调用失败
-        $4
+        console.log(res)
+      }).catch(error =>{
+        console.warn(error)
       })
     """
     'description': 'SDK 调用云函数'

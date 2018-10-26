@@ -1,97 +1,70 @@
 '.source.js,javascript':
 	'构建 AV.File 对象':
-    'prefix': 'avfile'
+    'prefix': 'av-file'
     'body': """
-			let file = new AV.File(filename, data)
+			const file = new AV.File(filename, data)
 		"""
     'description': '文件->文件上传'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash794363109'
 	'从网络路径 AV.File 对象':
-    'prefix': 'avwebfile'
+    'prefix': 'av-file-withURL'
     'body': """
-			let file = AV.File.withURL(filename,fileurl)
+			const file = AV.File.withURL(filename,fileurl)
 		"""
     'description': '文件->文件上传->从网络路径构建文件'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash688687091'
 	'图像缩略图':
-    'prefix': 'avthumbnail'
+    'prefix': 'av-thumbnailURL'
     'body': """
-			// 获得宽度为100像素，高度200像素的缩略图
-			let url = file.thumbnailURL(100, 200)
+			const url = file.thumbnailURL(100, 200)
 		"""
-    'description': '图像缩略图'
+    'description': '获得宽度为100像素，高度200像素的缩略图'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-259500047'
 	'文件元数据-获取文件大小':
-    'prefix': 'avfilesize'
+    'prefix': 'av-file-size'
     'body': """
-			// 获取文件大小
-			let size = file.size()
+			const size = file.size()
 		"""
-    'description': '文件元数据metaData'
+    'description': '获取文件大小'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-1143552046'
 	'文件元数据-获取上传者(AV.User)的objectId':
-    'prefix': 'avfileowener'
+    'prefix': 'av-file-owenerId'
     'body': """
-			// 上传者(AV.User) 的 objectId，如果未登录，默认为空
-			let ownerId = file.ownerId()
+			const ownerId = file.ownerId()
 		"""
-    'description': '文件元数据metaData'
+    'description': '上传者(AV.User) 的 objectId，如果未登录，默认为空'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-1143552046'
 	'文件元数据-获取文件的全部元信息':
-    'prefix': 'avfilemetadata'
+    'prefix': 'av-file-metadata'
     'body': """
-			// 获取文件的全部元信息
-			let metadata = file.metaData()
+			const metadata = file.metaData()
 		"""
-    'description': '文件元数据metaData'
+    'description': '获取文件的全部元信息'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-1143552046'
 	'文件元数据-获取文件的格式':
-    'prefix': 'avfileformat'
+    'prefix': 'av-file-format'
     'body': """
-			// 获取文件的格式
-			let format = file.metaData(\'format\')
+			const format = file.metaData(\'format\')
 		"""
-    'description': '文件元数据metaData'
+    'description': '获取文件的格式'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-1143552046'
 	'文件删除（销毁）':
-    'prefix': 'avfiledestroy'
+    'prefix': 'av-file-destroy'
     'body': """
 			// 默认情况下，文件的删除权限是关闭的，需要进入 控制台 > 存储 > _File，选择菜单 其他 > 权限设置 > delete 来开启。
-			// id 已知，通过如下接口从本地构建一个 AV.File
-			var file = AV.File.createWithoutData(objectId);
-			file.destroy().then((res)=>{
+			const file = AV.File.createWithoutData(objectId)
+			file.destroy().then(res => {
 			  console.log(res)
-			}).catch((error)=>{
-				console.log(error)
+			}).catch(error => {
+				console.warn(error)
 			})
 		"""
     'description': '文件删除'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash690244'
-	'查询关联对象':
-    'prefix': 'avfilequery'
-    'body': """
-			query.include('${1:filename}')
-		"""
-    'description': '文件->常见的文件使用场景->文件被其他对象关联'
-    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-940408283'
-	'已知id的文件查询方案':
-    'prefix': 'avfilequeryid'
-    'body': """
-			let $1 = AV.Object.createWithoutData('${2:Class}', ${3:objectId})
-			$1.fetch({
-			  include:['${4:filename}']
-			}).then((res) =>{
-			  console.log(res)
-			}).catch((error)=>{
-				console.log(error)
-			})
-		"""
-    'description': '对象->关联数据->Pointer'
-    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-400605635'
 	'LeanCloud 文件上传':
-    'prefix': 'avupload'
+    'prefix': 'av-file-upload'
     'body': """
-      let tempFilePath = res.tempFilePaths[0];
+      const tempFilePath = res.tempFilePaths[0]
       new AV.File('${1:file-name}', {
         blob: {
           uri: tempFilePath
@@ -99,28 +72,32 @@
       }).save().then((file) => {
         console.log(file.url())
       }).catch((error) => {
-        console.log(error)
+        console.warn(error)
       })
     """
     'description': '小程序->存储文件存储'
     'descriptionMoreURL': 'https://leancloud.cn/docs/weapp.html#hash794469087'
 	'小程序LeanCloud上传图片':
-	  'prefix': 'avweupload'
+	  'prefix': 'av-wx-upload'
 	  'body': """
 			wx.pro.chooseImage({
 			  count: 1,
 			  sizeType: ['original', 'compressed'],
 			  sourceType: ['album', 'camera'],
 			}).then(res => {
-			  var tempFilePath = res.tempFilePaths[0]
+			  const tempFilePath = res.tempFilePaths[0]
 			  new AV.File('1.txt', {
 			    blob: {
 			      uri: tempFilePath,
 			    }
-			  }).save().then(
-			    file => console.log(file.url())
-			  )
-			}).catch(console.error)
+			  }).save().then(file => {
+					console.log(file.url())
+				}).catch(error => {
+					console.warn(error)
+				})
+			}).catch(error => {
+				console.warn(error)
+			})
 	  """
 	  'description': '小程序文件存储'
 	  'descriptionMoreURL': 'https://leancloud.cn/docs/weapp.html#hash794469087'
