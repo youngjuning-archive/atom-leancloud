@@ -55,11 +55,21 @@
 		"""
     'description': '查询->比较查询'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash858517260'
+	'比较查询-批量equalTo':
+    'prefix': 'av-query-containedIn'
+    'body': 'query.containedIn(\'${1:key}\',${2:[value]})'
+    'description': '查询->比较查询->批量equalTo'
+    'descriptionMoreURL': 'hhttp://t.cn/EZS5SAX'	
   '比较查询-不等于':
     'prefix': 'av-query-notEqualTo'
     'body': 'query.notEqualTo(\'${1:key}\',${2:value})'
     'description': '查询->比较查询'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash858517260'
+	'比较查询-批量notEqualTo':
+    'prefix': 'av-query-notContainedIn'
+    'body': 'query.notContainedIn(\'${1:key}\',${2:[value]})'
+    'description': '查询->比较查询->批量notEqualTo'
+    'descriptionMoreURL': 'hhttp://t.cn/EZS5SAX'		
   '比较查询-大于':
     'prefix': 'av-query-greaterThan'
     'body': 'query.greaterThan(\'${1:key}\',${2:value})'
@@ -89,12 +99,7 @@
     'prefix': 'av-query-contains'
     'body': 'query.contains(\'${1:key}\',${2:value})'
     'description': '查询->字符串查询'
-    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-1971670686'
-	'字符串查询-包含查询-数组':
-    'prefix': 'av-query-containedIn'
-    'body': 'query.containedIn(\'${1:key}\',${2:[value]})'
-    'description': '查询->字符串查询->值为数组'
-    'descriptionMoreURL': 'hhttp://t.cn/EZS5SAX'	
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-1971670686'	
 	'字符串查询-不包含查询':
     'prefix': 'av-query-notcontains'
     'body': """
