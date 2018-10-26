@@ -121,12 +121,7 @@
 	'空值查询':
     'prefix': 'av-query-exists'
     'body': """
-			query.exists(${1:key})
-			query.find().then((results)=>{
-			  // results 返回的就是指定的key不为空值的集合
-			},error=>{
-			  alert(JSON.stringify(error))
-			})
+			query.exists('${1:key}')
 		"""
     'description': '查询->空值查询'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash805659377'
