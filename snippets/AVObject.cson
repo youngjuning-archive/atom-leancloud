@@ -71,9 +71,21 @@
 			const $1 = AV.Object.createWithoutData('${2:className}',${3:id})
 		"""
     'description': '对象->获取对象'
-    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash632731115'	
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash632731115'
 	'同步对象':
 	  'prefix': 'av-fetch'
+	  'body': """
+			const $1 = AV.Object.createWithoutData('${2:className}',${3:id})
+			$1.fetch().then(()=>{
+				console.log($1)
+			}).catch(error => {
+				console.warn(error)
+			})
+		"""
+	  'description': '对象->获取对象->同步对象：从云端拉取数据到本地'
+	  'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash668169761'		
+	'同步对象 optopn':
+	  'prefix': 'av-fetch-option'
 	  'body': """
 			const $1 = AV.Object.createWithoutData('${2:className}',${3:id})
 			$1.fetch({

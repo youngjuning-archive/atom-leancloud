@@ -1,4 +1,21 @@
 '.source.js,javascript':
+	'创建查询实例':
+    'prefix': 'av-query'
+    'body': """
+			const query = new AV.Query(\'${1:Class}\')
+		"""
+    'description': '查询->创建查询实例'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash1981778890'
+	'返回指定属性/字段':
+    'prefix': 'av-query-select'
+    'body': 'query.select([\'${1:key1}\',\'${2:key2}\'])'
+    'description': '查询->查询结果数量和排序->返回指定属性/字段'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-916037211'
+	'返回Pointer类型的指定属性/字段':
+    'prefix': 'av-query-select-key'
+    'body': 'query.select(\'${1:pointerKey}.${2:key}\')'
+    'description': '查询->查询结果数量和排序->返回指定属性/字段'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-916037211'	
 	'获取关联数据':
     'prefix': 'av-query-include'
     'body': """
@@ -10,34 +27,27 @@
     'prefix': 'av-query-include-key'
     'body': 'query.include(\'$1.$2\')'
     'description': '查询->关系查询->关联属性查询'
-    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash949667495'	
-	'创建查询实例':
-    'prefix': 'av-Query'
-    'body': """
-			const query = new AV.Query(\'${1:Class}\')
-		"""
-    'description': '查询->创建查询实例'
-    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash1981778890'
-	'根据 objectId 来查询对象':
-    'prefix': 'av-query-get'
-    'body': """
-			query.get(${1:objectId}).then(res => {
-			  console.log(res)
-			}, err => {
-			  console.log(err)
-			})
-		"""
-    'description': '查询->创建查询实例'
-    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-2027098679'
-	'执行查询语句':
-    'prefix': 'av-query-find'
-    'body': """
-			query.find().then(${1:res}=>{
-			  console.log(${1:res})
-			},err=>{
-				console.log(err)
-			})
-		"""
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash949667495'		
+	'升序排序':
+    'prefix': 'av-query-ascending'
+    'body': 'query.ascending(\'${1:key}\')'
+    'description': '查询->查询结果数量和排序->排序'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash814397'
+	'降序排序':
+    'prefix': 'av-query-descending'
+    'body': 'query.descending(\'${1:key}\')'
+    'description': '查询->查询结果数量和排序->排序'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash814397'
+	'附加升序排序条件':
+    'prefix': 'av-query-addAscending'
+    'body': 'query.addAscending(\'${1:key}\')'
+    'description': '查询->查询结果数量和排序->排序'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash814397'
+  '附加降序排序条件':
+    'prefix': 'av-query-addDescending'
+    'body': 'query.addDescending(\'${1:key}\')'
+    'description': '查询->查询结果数量和排序->排序'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash814397'	
 	'比较查询-等于':
     'prefix': 'av-query-equalTo'
     'body': """
@@ -89,7 +99,7 @@
     'description': '查询->字符串查询'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-1971670686'
 	'数组查询-查出所有满足条件的项':
-    'prefix': 'av-query-containsall'
+    'prefix': 'av-query-containsAll'
     'body': 'query.containsAll(\'${1:arrayKey}\', filterArray)'
     'description': '查询->数组查询'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash805659377'
@@ -116,108 +126,82 @@
     'description': '查询->关系查询->内嵌查询'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash645521220'
   '执行不匹配的内嵌查询':
-    'prefix': 'avdoesnotmatchquery'
+    'prefix': 'av-query-doesNotMatchQuery'
     'body': 'query.doesNotMatchQuery(\'key\', innerQuery)'
     'description': '查询->关系查询->内嵌查询'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash645521220'
-
 	'查询位置附近的对象':
-    'prefix': 'avwithinKilometers'
+    'prefix': 'av-query-withinKilometers'
     'body': """
 			// 第一个参数是属性名，第二参数是GeoPoint对象，第三个参数是距离（km）
 			query.withinKilometers('${1:GeoPointKey}',${2:GeoPoint},2.0)
 		"""
     'description': '查询->地理位置查询->查询位置附近的对象'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash325629825'
-
 	'OR 查询':
-    'prefix': 'avor'
+    'prefix': 'av-query-or'
     'body': 'AV.Query.or(query1,query2)'
     'description': '查询->组合查询->OR 查询'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash106810567'
-
   'AND 查询':
-    'prefix': 'avand'
+    'prefix': 'av-query-and'
     'body': 'AV.Query.and(query1,query2)'
     'description': '查询->组合查询->AND 查询'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-1412469677'
-
-	'获取第一条结果':
-    'prefix': 'avfirst'
+	'限定返回数量{1,1000}':
+    'prefix': 'av-query-limit'
     'body': """
-			query.first().then((${1:data})=>{
-			  // ${1:data}就是符合条件的第一个AV.Object
-				$2
-			},error=>{
-			  alert(JSON.stringify(error))
-			})
-		"""
-    'description': '查询->查询结果数量和排序->获取第一条结果'
-    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-1659957801'
-
-	'限定返回数量':
-    'prefix': 'avlimit'
-    'body': """
-			// limit 允许取值范围是 1 ~ 1000。
 			query.limit(${1:10})
 		"""
     'description': '查询->查询结果数量和排序->限定返回数量'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-856015949'
-
 	'跳过数量：配合limit可以实现翻页效果':
-    'prefix': 'avskip'
+    'prefix': 'av-query-skip'
     'body': """
-			query.limit(${1:10})// 最多返回 n 条结果
-			query.skip(${2:20})// 跳过 n 条结果
-			// 上述方法的执行效率比较低，因此不建议广泛使用。建议选用 createdAt 或者 updatedAt 这类的时间戳进行分段查询
+			query.limit(${1:10})
+			query.skip(${2:20})
 		"""
     'description': '查询->查询结果数量和排序->跳过数量'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash1118789011'
-
-	'返回指定属性/字段':
-    'prefix': 'avselect'
-    'body': 'query.select([\'${1:key1}\',\'${2:key2}\'])'
-    'description': '查询->查询结果数量和排序->返回指定属性/字段'
-    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-916037211'
-
-	'返回Pointer类型的指定属性/字段':
-    'prefix': 'avselectpointer'
-    'body': 'query.select(\'${1:pointerKey}.${2:key}\')'
-    'description': '查询->查询结果数量和排序->返回指定属性/字段'
-    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-916037211'
-
 	'统计总数量':
-    'prefix': 'avcount'
+    'prefix': 'av-query-count'
     'body': """
-			query.count().then((count)=>{
+			query.count().then(count => {
 			  console.log(count)
-			},error=>{
-			  alert(JSON.stringify(error))
+			}).catch(error => {
+				console.warn(error)
 			})
 		"""
     'description': '查询->查询结果数量和排序->统计总数量'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash1019663352'
-
-	'升序排序':
-    'prefix': 'avascending'
-    'body': 'query.ascending(\'${1:key}\')'
-    'description': '查询->查询结果数量和排序->排序'
-    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash814397'
-
-	'降序排序':
-    'prefix': 'avdescending'
-    'body': 'query.descending(\'${1:key}\')'
-    'description': '查询->查询结果数量和排序->排序'
-    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash814397'
-
-	'附加升序排序条件':
-    'prefix': 'avdescending'
-    'body': 'query.addAscending(\'${1:key}\')'
-    'description': '查询->查询结果数量和排序->排序'
-    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash814397'
-
-  '附加降序排序条件':
-    'prefix': 'avdescending'
-    'body': 'query.addDescending(\'${1:key}\')'
-    'description': '查询->查询结果数量和排序->排序'
-    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash814397'
+	'获取第一条结果':
+    'prefix': 'av-query-first'
+    'body': """
+			query.first().then(res => {
+			  console.log(res)
+			}).catch(error => {
+				console.warn(error)
+			})
+		"""
+    'description': '查询->查询结果数量和排序->获取第一条结果'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-1659957801'
+	'执行查询语句':
+    'prefix': 'av-query-find'
+    'body': """
+			query.find().then(${1:res}=>{
+			  console.log(${1:res})
+			},err=>{
+				console.log(err)
+			})
+		"""	
+	'根据 objectId 来查询对象':
+    'prefix': 'av-query-get'
+    'body': """
+			query.get(${1:objectId}).then(res => {
+			  console.log(res)
+			}, err => {
+			  console.log(err)
+			})
+		"""
+    'description': '查询->创建查询实例'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash-2027098679'
