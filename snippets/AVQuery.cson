@@ -19,7 +19,7 @@
 	'获取关联数据':
     'prefix': 'av-query-include'
     'body': """
-			query.include('')
+			query.include('$1','$1.$2')
 		"""
     'description': '查询->关系查询->Pointer查询'
     'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash1272546861'
