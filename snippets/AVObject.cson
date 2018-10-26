@@ -16,14 +16,7 @@
 			    AV.Object.register(${1:lassName})
 			  }
 
-				static createWithoutData (id) {
-			    return super.createWithoutData('${1:lassName}', id)
-			  }
-				static getQuery () {
-			    return new AV.Query('${1:lassName}')
-			  }
-
-				$2
+				// TODO: here you go
 			}
 
 			export default ${1:className}
