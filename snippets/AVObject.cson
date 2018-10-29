@@ -61,15 +61,15 @@
 	'根据id，在本地构建一个 AV.Object':
     'prefix': 'av-createWithoutData'
     'body': """
-			const $1 = AV.Object.createWithoutData('${2:className}',${3:id})
+			const $1 = await AV.Object.createWithoutData('${2:className}',${3:id}).fetch()
 		"""
     'description': '对象->获取对象'
-    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash632731115'
+    'descriptionMoreURL': 'https://leancloud.cn/docs/leanstorage_guide-js.html#hash632731115'	
 	'同步对象':
 	  'prefix': 'av-fetch'
 	  'body': """
 			const $1 = AV.Object.createWithoutData('${2:className}',${3:id})
-			$1.fetch().then(()=>{
+			$1.fetch().then(() => {
 				console.log($1)
 			}).catch(error => {
 				console.warn(error)
